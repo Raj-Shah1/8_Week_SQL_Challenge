@@ -9,3 +9,4 @@
 - Case Statments
 - Window Functions
 - Subqueries
+- Datetime functions
