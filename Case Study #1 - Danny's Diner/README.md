@@ -2,6 +2,17 @@
 
 <img src="https://user-images.githubusercontent.com/61704509/170932760-81c7779f-841b-4041-a820-e23759f96959.png" width=60% height=60%>
 
+## What can you practice with this case study?
+
+- Joins
+- Common Table Expressions (CTEs)
+- Aggregate Functions
+- Rank Function
+- Case Statments
+- Window Functions
+- Subqueries
+- Datetime functions
+
 ## Introduction
 
 Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
@@ -25,8 +36,8 @@ Danny has shared with you 3 key datasets for this case study:
 You can inspect the entity relationship diagram and example data below.
 
 ## Entity Relationship Diagram
-<img width="600" src="https://user-images.githubusercontent.com/61704509/170973187-91643c22-59a1-4c95-a1f1-383c0294cc20.png">
 
+<img width="600" src="https://user-images.githubusercontent.com/61704509/170973187-91643c22-59a1-4c95-a1f1-383c0294cc20.png">
 
 ## Case Study Questions ([Solution](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/blob/initial/Case%20Study%20%231%20-%20Danny's%20Diner/Case_Study_Questions.sql))
 
