@@ -1,4 +1,4 @@
-![](https://8weeksqlchallenge.com/images/case-study-designs/1.png)
+# Case Study #1 - Danny's Diner
 
 ## Introduction
 
@@ -24,60 +24,7 @@ You can inspect the entity relationship diagram and example data below.
 
 ## Entity Relationship Diagram
 
-## Example Datasets
-
-All datasets exist within the `dannys_diner` database schema - be sure to include this reference within your SQL scripts as you start exploring the data and answering the case study questions.
-
-### Table 1: sales
-
-The `sales` table captures all `customer_id` level purchases with an corresponding `order_date` and `product_id` information for when and what menu items were ordered.
-
-| customer\_id | order\_date | product\_id |
-| --- | --- | --- |
-| A | 2021-01-01 | 1 |
-| A | 2021-01-01 | 2 |
-| A | 2021-01-07 | 2 |
-| A | 2021-01-10 | 3 |
-| A | 2021-01-11 | 3 |
-| A | 2021-01-11 | 3 |
-| B | 2021-01-01 | 2 |
-| B | 2021-01-02 | 2 |
-| B | 2021-01-04 | 1 |
-| B | 2021-01-11 | 1 |
-| B | 2021-01-16 | 3 |
-| B | 2021-02-01 | 3 |
-| C | 2021-01-01 | 3 |
-| C | 2021-01-01 | 3 |
-| C | 2021-01-07 | 3 |
-
-The `menu` table maps the `product_id` to the actual `product_name` and `price` of each menu item.
-
-| product\_id | product\_name | price |
-| --- | --- | --- |
-| 1 | sushi | 10 |
-| 2 | curry | 15 |
-| 3 | ramen | 12 |
-
-### Table 3: members
-
-The final `members` table captures the `join_date` when a `customer_id` joined the beta version of the Danny’s Diner loyalty program.
-
-| customer\_id | join\_date |
-| --- | --- |
-| A | 2021-01-07 |
-| B | 2021-01-09 |
-
-## Interactive SQL Session
-
-You can use the embedded DB Fiddle below to easily access these example datasets - this interactive session has everything you need to start solving these questions using SQL.
-
-You can click on the `Edit on DB Fiddle` link on the top right hand corner of the embedded session below and it will take you to a fully functional SQL editor where you can write your own queries to analyse the data.
-
-You can feel free to choose any SQL dialect you’d like to use, the existing Fiddle is using PostgreSQL 13 as default.
-
-Serious SQL students have access to a dedicated SQL script in the 8 Week SQL Challenge section of the course which they can use to generate relevant temporary tables like we’ve done throughout the entire course!
-
-## Case Study Questions
+## Case Study Questions ([Solution](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/blob/initial/Case%20Study%20%231%20-%20Danny's%20Diner/Case_Study_Questions.sql))
 
 Each of the following case study questions can be answered using a single SQL statement:
 
@@ -92,9 +39,9 @@ Each of the following case study questions can be answered using a single SQL st
 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
-## Bonus Questions
+## Bonus Questions ([Solution](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/blob/initial/Case%20Study%20%231%20-%20Danny's%20Diner/Bonus_Questions.sql))
 
-### Join All The Things
+### **Join All The Things**
 
 The following questions are related creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL.
 
@@ -118,7 +65,7 @@ Recreate the following table output using the available data:
 | C | 2021-01-01 | ramen | 12 | N |
 | C | 2021-01-07 | ramen | 12 | N |
 
-### Rank All The Things
+### **Rank All The Things**
 
 Danny also requires further information about the `ranking` of customer products, but he purposely does not need the ranking for non-member purchases so he expects null `ranking` values for the records when customers are not yet part of the loyalty program.
 
@@ -139,4 +86,3 @@ Danny also requires further information about the `ranking` of customer products
 | C | 2021-01-01 | ramen | 12 | N | null |
 | C | 2021-01-01 | ramen | 12 | N | null |
 | C | 2021-01-07 | ramen | 12 | N | null |
-
