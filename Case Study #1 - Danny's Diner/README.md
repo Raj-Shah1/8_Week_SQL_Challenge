@@ -23,7 +23,8 @@ Danny has shared with you 3 key datasets for this case study:
 
 You can inspect the entity relationship diagram and example data below.
 
-## Entity Relationship Diagram
+## Entity Relationship Diagram<img width="730" alt="Screenshot 2022-05-30 at 3 55 57 PM" src="https://user-images.githubusercontent.com/61704509/170973187-91643c22-59a1-4c95-a1f1-383c0294cc20.png">
+
 
 ## Case Study Questions ([Solution](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/blob/initial/Case%20Study%20%231%20-%20Danny's%20Diner/Case_Study_Questions.sql))
 
