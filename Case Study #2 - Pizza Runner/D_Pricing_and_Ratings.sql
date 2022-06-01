@@ -134,5 +134,30 @@ GROUP BY co.customer_id
 	,delivery_duration_in_minutes
 	,speed_in_kms_per_hour
 ORDER BY customer_id
-	,order_id
+	,order_id;
 
+-- 5. If a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras 
+-- and each runner is paid $0.30 per kilometre traveled - 
+-- how much money does Pizza Runner have left over after these deliveries?
+WITH order_earnings
+AS (
+SELECT SUM(CASE 
+			WHEN pn.pizza_name = 'Meatlovers'
+				THEN 12
+			WHEN pn.pizza_name = 'Vegetarian'
+				THEN 10
+			END) AS order_earnings_in_dollars
+FROM tmp_customer_orders co
+INNER JOIN pizza_runner.pizza_names pn ON co.pizza_id = pn.pizza_id
+INNER JOIN pizza_runner.runner_orders ro ON ro.order_id = co.order_id
+	AND ro.cancellation IS NULL
+)
+,runner_payments
+AS (
+SELECT 0.3 * SUM(round(ro.distance_in_kms)) AS payment_in_dollars
+FROM pizza_runner.runner_orders ro
+WHERE ro.cancellation IS NULL
+)
+SELECT order_earnings_in_dollars - payment_in_dollars AS earnings_in_dollars
+FROM order_earnings
+CROSS JOIN runner_payments;
