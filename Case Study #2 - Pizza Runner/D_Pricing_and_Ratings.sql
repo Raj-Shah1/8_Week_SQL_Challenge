@@ -41,6 +41,16 @@ DROP COLUMN exclusions
 
 
 -- Case Study Queries
+	-- Tables To Be Used For Querying
+		-- tmp_customer_orders;
+		-- pizza_runner.runner_orders;
+		-- pizza_runner.pizza_names;
+		-- tmp_pizza_recipes;
+		-- tmp_pizza_extras;
+		-- tmp_pizza_exclusions;
+		-- pizza_runner.pizza_toppings;
+		-- pizza_runner.runners;
+
 -- 1. If a Meat Lovers pizza costs $12 and Vegetarian costs $10 and there were no charges for changes - 
 -- how much money has Pizza Runner made so far if there are no delivery fees?
 SELECT SUM(CASE 
@@ -88,3 +98,41 @@ INSERT INTO ratings (
 	FROM pizza_runner.runner_orders 
 	WHERE cancellation IS NULL
 	);
+
+-- 4. Using your newly generated table - can you join all of the information together to form a table which has the following information for successful deliveries?
+	-- 	customer_id
+	-- 	order_id
+	-- 	runner_id
+	-- 	rating
+	-- 	order_time
+	-- 	pickup_time
+	-- 	Time between order and pickup
+	-- 	Delivery duration
+	-- 	Average speed
+	-- 	Total number of pizzas
+
+SELECT co.customer_id 
+	,co.order_id
+	,ro.runner_id
+	,r.rating
+	,co.order_time
+	,ro.pickup_time
+	,(ro.pickup_time - co.order_time) AS pickup_to_order_duration
+	,ro.duration_in_minutes AS delivery_duration_in_minutes
+	,(ro.distance_in_kms * 60/ro.duration_in_minutes) AS speed_in_kms_per_hour
+	,COUNT(co.pizza_id) AS no_of_pizzas_ordered
+FROM tmp_customer_orders co
+INNER JOIN pizza_runner.runner_orders ro ON co.order_id = ro.order_id
+INNER JOIN pizza_runner.ratings r ON r.order_id = co.order_id
+GROUP BY co.customer_id 
+	,co.order_id
+	,ro.runner_id
+	,r.rating
+	,co.order_time
+	,ro.pickup_time
+	,pickup_to_order_duration
+	,delivery_duration_in_minutes
+	,speed_in_kms_per_hour
+ORDER BY customer_id
+	,order_id
+

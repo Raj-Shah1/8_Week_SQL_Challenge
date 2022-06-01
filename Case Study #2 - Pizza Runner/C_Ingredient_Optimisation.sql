@@ -39,6 +39,16 @@ DROP COLUMN exclusions
 
 
 -- Case Study Queries
+	-- Tables To Be Used For Querying
+		-- tmp_customer_orders;
+		-- pizza_runner.runner_orders;
+		-- pizza_runner.pizza_names;
+		-- tmp_pizza_recipes;
+		-- tmp_pizza_extras;
+		-- tmp_pizza_exclusions;
+		-- pizza_runner.pizza_toppings;
+		-- pizza_runner.runners;
+
 -- 1. What are the standard ingredients for each pizza?
 SELECT pn.pizza_name
 	,STRING_AGG(pt.topping_name, ', ')
