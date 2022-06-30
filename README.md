@@ -5,7 +5,7 @@
 
 [Read More](https://8weeksqlchallenge.com/case-study-1/)
 
-[My Solutions](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/tree/initial/Case%20Study%20%231%20-%20Danny's%20Diner)
+[My Solutions](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner)
 
 
 ## Case Study #2 - Pizza Runner
@@ -13,10 +13,16 @@
 
 [Read More](https://8weeksqlchallenge.com/case-study-2/)
 
+[My Solutions](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner)
+
+
 ## Case Study #3 - Foodie-Fi
 <img src="https://user-images.githubusercontent.com/61704509/170935147-2833f841-5050-4465-a113-2fe84a50d4ea.png" width=30% height=30%>
 
 [Read More](https://8weeksqlchallenge.com/case-study-3/)
+
+[My Solutions](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/tree/main/Case%20Study%20%233%20-%20Foodie-Fi)
+
 
 ## Case Study #4 - Data Bank
 <img src="https://user-images.githubusercontent.com/61704509/170935481-6d564b6a-5622-4131-ad5b-da727739143b.png" width=30% height=30%>
