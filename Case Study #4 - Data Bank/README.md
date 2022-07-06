@@ -32,8 +32,8 @@ This case study is all about calculating metrics, growth and helping the busines
 
 The Data Bank team have prepared a data model for this case study as well as a few example rows from the complete dataset below to get you familiar with their tables.
 
-### Entity Relationship Diagram
-
+## Entity Relationship Diagram
+<img width="600" src="https://user-images.githubusercontent.com/61704509/177491487-b015cb31-1eb4-4af6-bc65-889c03ec8e9f.png">
 
 ### Table 1: Regions
 
