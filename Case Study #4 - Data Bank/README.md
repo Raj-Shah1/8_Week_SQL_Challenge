@@ -1,4 +1,4 @@
-# Case Study #3 - Foodie-Fi ([Read More](https://8weeksqlchallenge.com/case-study-4/))
+# Case Study #4 - Data Bank ([Read More](https://8weeksqlchallenge.com/case-study-4/))
 
 <img src="https://user-images.githubusercontent.com/61704509/170935481-6d564b6a-5622-4131-ad5b-da727739143b.png" width=60% height=60%>
 
