@@ -29,6 +29,8 @@
 
 [Read More](https://8weeksqlchallenge.com/case-study-4/)
 
+[My Solutions](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/tree/main/Case%20Study%20%234%20-%20Data%20Bank)
+
 ## Case Study #5 - Data Mart
 <img src="https://user-images.githubusercontent.com/61704509/170935495-fcf73acf-e5c1-4438-ae18-146dc6397944.png" width=30% height=30%>
 
