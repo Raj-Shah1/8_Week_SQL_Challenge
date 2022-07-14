@@ -1,4 +1,3 @@
-
 -- A. Data Cleansing Steps
 -- 1. Convert the week_date to a DATE format
 ALTER TABLE data_mart.weekly_sales ALTER COLUMN week_date TYPE DATE USING TO_DATE (
@@ -89,7 +88,5 @@ WHERE demographic IS NULL
 -- divided by transactions rounded to 2 decimal places for each record
 ALTER TABLE data_mart.weekly_sales ADD COLUMN avg_transaction DECIMAL(10, 2);
 
-SELECT sales
-	,transactions
-	,round((sales::NUMERIC(12, 4) / transactions::NUMERIC(12, 4)), 2)
-FROM data_mart.weekly_sales;
+UPDATE data_mart.weekly_sales
+SET avg_transaction = round((sales::NUMERIC(12, 4) / transactions::NUMERIC(12, 4)), 2);
