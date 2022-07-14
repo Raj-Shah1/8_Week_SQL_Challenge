@@ -10,7 +10,7 @@ ALTER TABLE data_mart.weekly_sales ALTER COLUMN week_date TYPE DATE USING TO_DAT
 ALTER TABLE data_mart.weekly_sales ADD COLUMN week_number INTEGER;
 
 UPDATE data_mart.weekly_sales
-SET week_number = ((week_date - date_trunc('year', week_date::DATE)::DATE) / 7) + 1;
+SET week_number = DATE_PART('week',week_date) AS week_number;
 
 -- 3. Add a month_number with the calendar month for each week_date value as the 3rd column
 ALTER TABLE data_mart.weekly_sales ADD COLUMN month_number INTEGER;
