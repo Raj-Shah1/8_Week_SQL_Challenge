@@ -9,7 +9,7 @@
 WITH fixed_week_value
 AS (
 	SELECT DISTINCT week_number AS fixed_week_number
-	FROM data_mart.weekly_sales
+	FROM data_mart.clean_weekly_sales
 	WHERE week_date = '2020-06-15'
 	)
 	,sales_data
@@ -26,7 +26,7 @@ AS (
 			,MAX(week_date)::VARCHAR
 			) AS date_range
 		,SUM(sales) AS total_sales
-	FROM data_mart.weekly_sales
+	FROM data_mart.clean_weekly_sales
 	CROSS JOIN fixed_week_value
 	WHERE week_number >= fixed_week_number - 4
 		AND week_number < fixed_week_number + 4
