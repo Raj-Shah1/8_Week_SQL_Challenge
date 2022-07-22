@@ -36,6 +36,8 @@
 
 [Read More](https://8weeksqlchallenge.com/case-study-5/)
 
+[My Solutions](https://github.com/Raj-Shah1/8_Week_SQL_Challenge/tree/main/Case%20Study%20%235%20-%20Data%20Mart)
+
 ## Case Study #6 - Clique Bait
 <img src="https://user-images.githubusercontent.com/61704509/170935499-b1c2a367-ae5b-4e0c-a250-7cd26ae24132.png" width=30% height=30%>
 
