@@ -1,4 +1,5 @@
 # Case Study #5 - Data Mart ([Read More](https://8weeksqlchallenge.com/case-study-5/))
+<img src="https://user-images.githubusercontent.com/61704509/180492562-1b59e903-42fa-43f6-88cf-078cfd14ef13.png" width=60% height=60%>
 
 ## What can you practice with this case study?
 
@@ -28,7 +29,7 @@ The key business question he wants you to help him answer are the following:
 For this case study there is only a single table: `data_mart.weekly_sales`
 
 ## Entity Relationship Diagram
-
+<img width="303" src="https://user-images.githubusercontent.com/61704509/180492747-09d01afb-697d-4b9a-8409-fab260670a26.png">
 
 The columns are pretty self-explanatory based on the column names but here are some further details about the dataset:
 
