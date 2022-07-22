@@ -6,32 +6,25 @@ AS (
 	FROM data_mart.weekly_sales
 	WHERE week_date = '2020-06-15'
 	)
-	,period_interval
+	,sales_data
 AS (
-	SELECT DISTINCT week_date
-		,CASE 
+	SELECT CASE 
 			WHEN week_number < fixed_week_number
 				THEN 'Before'
 			ELSE 'After'
 			END AS period
+		,CONCAT (
+			MIN(week_date)::VARCHAR
+			,' to '
+			,MAX(week_date)::VARCHAR
+			) AS date_range
+		,SUM(sales) AS total_sales
 	FROM data_mart.weekly_sales
 	CROSS JOIN fixed_week_value
 	WHERE week_number >= fixed_week_number - 4
 		AND week_number < fixed_week_number + 4
 		AND calendar_year = 2020
-	)
-	,sales
-AS (
-	SELECT pi.period
-		,CONCAT (
-			MIN(pi.week_date)::VARCHAR
-			,' to '
-			,MAX(pi.week_date)::VARCHAR
-			) AS date_range
-		,SUM(ws.sales) AS total_sales
-	FROM data_mart.weekly_sales ws
-	INNER JOIN period_interval pi ON pi.week_date = ws.week_date
-	GROUP BY pi.period
+	GROUP BY period
 	)
 SELECT period
 	,date_range
@@ -46,7 +39,7 @@ SELECT period
 					)
 				) - 1
 			), 2) AS sales_growth_in_percent
-FROM sales;
+FROM sales_data;
 
 -- 2. What about the entire 12 weeks before and after?
 WITH fixed_week_value
@@ -55,32 +48,25 @@ AS (
 	FROM data_mart.weekly_sales
 	WHERE week_date = '2020-06-15'
 	)
-	,period_interval
+	,sales_data
 AS (
-	SELECT DISTINCT week_date
-		,CASE 
+	SELECT CASE 
 			WHEN week_number < fixed_week_number
 				THEN 'Before'
 			ELSE 'After'
 			END AS period
+		,CONCAT (
+			MIN(week_date)::VARCHAR
+			,' to '
+			,MAX(week_date)::VARCHAR
+			) AS date_range
+		,SUM(sales) AS total_sales
 	FROM data_mart.weekly_sales
 	CROSS JOIN fixed_week_value
 	WHERE week_number >= fixed_week_number - 12
 		AND week_number < fixed_week_number + 12
 		AND calendar_year = 2020
-	)
-	,sales
-AS (
-	SELECT pi.period
-		,CONCAT (
-			MIN(pi.week_date)::VARCHAR
-			,' to '
-			,MAX(pi.week_date)::VARCHAR
-			) AS date_range
-		,SUM(ws.sales) AS total_sales
-	FROM data_mart.weekly_sales ws
-	INNER JOIN period_interval pi ON pi.week_date = ws.week_date
-	GROUP BY pi.period
+	GROUP BY period
 	)
 SELECT period
 	,date_range
@@ -95,7 +81,7 @@ SELECT period
 					)
 				) - 1
 			), 2) AS sales_growth_in_percent
-FROM sales;
+FROM sales_data;
 
 -- 3. How do the sale metrics for these 2 periods before and after compare with the previous years in 2018 and 2019?
 -- Considering 12 weeks before and after
@@ -105,35 +91,26 @@ AS (
 	FROM data_mart.weekly_sales
 	WHERE week_date = '2020-06-15'
 	)
-	,period_interval
+	,sales_data
 AS (
-	SELECT DISTINCT week_date
-		,calendar_year
+	SELECT calendar_year
 		,CASE 
 			WHEN week_number < fixed_week_number
 				THEN 'Before'
 			ELSE 'After'
 			END AS period
+		,CONCAT (
+			MIN(week_date)::VARCHAR
+			,' to '
+			,MAX(week_date)::VARCHAR
+			) AS date_range
+		,SUM(sales) AS total_sales
 	FROM data_mart.weekly_sales
 	CROSS JOIN fixed_week_value
 	WHERE week_number >= fixed_week_number - 12
 		AND week_number < fixed_week_number + 12
-	)
-	,sales
-AS (
-	SELECT pi.period
-		,ws.calendar_year
-		,CONCAT (
-			MIN(pi.week_date)::VARCHAR
-			,' to '
-			,MAX(pi.week_date)::VARCHAR
-			) AS date_range
-		,SUM(ws.sales) AS total_sales
-	FROM data_mart.weekly_sales ws
-	INNER JOIN period_interval pi ON pi.week_date = ws.week_date
-		AND pi.calendar_year = ws.calendar_year
-	GROUP BY pi.period
-		,ws.calendar_year
+	GROUP BY calendar_year
+		,period
 	)
 SELECT calendar_year
 	,period
@@ -149,6 +126,6 @@ SELECT calendar_year
 					)
 				) - 1
 			), 2) AS sales_growth_in_percent
-FROM sales
+FROM sales_data
 ORDER BY calendar_year
 	,date_range;
